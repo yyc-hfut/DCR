@@ -119,8 +119,8 @@ def main():
             sample_feat = agent_feature_defaults[modality]
         modality_dims[modality] = sample_feat.shape[-1] if sample_feat.ndim >= 1 else 1
 
-    multimodal_train_npz = '/path/to/checkpoints/multimodal_fusion_best_acc_0.6893_seed_42_train_predictions.npz'
-    multimodal_test_npz = '/path/to/checkpoints/multimodal_fusion_best_acc_0.6893_seed_42_test_predictions.npz'
+    multimodal_train_npz = '/path/to/checkpoints/multimodal_fusion_train_predictions.npz'
+    multimodal_test_npz = '/path/to/checkpoints/multimodal_fusion_test_predictions.npz'
     multimodal_available = os.path.exists(multimodal_train_npz) and os.path.exists(multimodal_test_npz)
     multimodal_predictions = load_multimodal_predictions(multimodal_train_npz, multimodal_test_npz) if multimodal_available else None
 
@@ -448,3 +448,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
